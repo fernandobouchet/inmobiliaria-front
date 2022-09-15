@@ -3,10 +3,9 @@ import {LOGIN} from '../../routes/path';
 import {useAuthContext} from '../../context/authContext';
 
 
-export default function PublicRoute() {
+export default function PrivateRoute() {
     const {isAuthenticated} = useAuthContext();
-
-    if(!isAuthenticated){
+    if(isAuthenticated === false){
         return <Navigate to={LOGIN}/>;
     }
 

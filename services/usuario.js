@@ -9,7 +9,8 @@ export const login = async credentials =>{
 }
 
 export const formRegister = async credentials =>{
-    await axios.post(' https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/user/create', credentials)
+  console.log(credentials)
+    await axios.post(' https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/register', credentials)
     .then(function (response) {
         console.log(response);
       })

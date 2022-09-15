@@ -2,7 +2,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { PRIVATE,LOGIN,REGISTER, LOGOUT, HOME } from '../routes/path'
 import Login from '../components/usuario/login'
-import Register from '../components/usuario/register'
+import Register from '../components/usuario/Register'
 import Home from '../pages/Home.jsx'
 import PublicRoute from '../components/router/PublicRoute'
 import PrivateRoute from '../components/router/PrivateRoute'

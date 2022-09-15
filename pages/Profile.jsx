@@ -5,7 +5,7 @@ import { LOGOUT } from '../routes/path'
 const Profile = () => {
   return (
     <div>
-      <h1>  Ruta privada     </h1>
+      <h1>  Ruta privada a    </h1>
     <Link to={LOGOUT}> Cerrar sesion</Link>
     </div>
   )

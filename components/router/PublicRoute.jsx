@@ -5,8 +5,9 @@ import {useAuthContext} from '../../context/authContext';
 
 export default function PublicRoute() {
     const {isAuthenticated} = useAuthContext();
-    console.log(isAuthenticated)
-    if(isAuthenticated){
+ 
+    if(isAuthenticated === true){
+        console.log(isAuthenticated)
         return <Navigate to={PRIVATE}/>;
     }
 
