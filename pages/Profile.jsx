@@ -1,14 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { LOGOUT } from '../routes/path'
+import React from 'react';
+import { Button, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { LOGOUT } from '../routes/path';
 
 const Profile = () => {
   return (
-    <div>
-      <h1>  Ruta privada a    </h1>
-    <Link to={LOGOUT}> Cerrar sesion</Link>
-    </div>
-  )
-}
+    <Container>
+      <h1> Ruta privada a </h1>
+      <Button as={Link} to={LOGOUT}>
+        Cerrar sesion
+      </Button>
+    </Container>
+  );
+};
 
-export default Profile
+export default Profile;
