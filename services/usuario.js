@@ -10,20 +10,20 @@ const baseUrl = '';
 // };
 export const formLogin = async (credentials) => {
   let credJson = JSON.stringify(credentials);
+
+  const config = {
+    method: 'post',
+    url: 'https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/login',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: credJson,
+  };
+
   try {
-    const result = await axios.post(
-      'https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/login',
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Access-Control-Allow-Origin': '*',
-        },
-        data: credJson,
-      }
-    );
+    const result = await axios(config);
     if (result.status === 200) {
-      return result.data;
+      console.log(result.data);
     } else {
       console.log('Unknow error');
     }
