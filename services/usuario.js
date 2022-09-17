@@ -25,7 +25,7 @@ export const formLogin = async (credentials) => {
     if (result.status === 200) {
       return result.data;
     } else {
-      console.log('Unknow error');
+      console.log('error');
     }
   } catch (error) {
     console.log(error);
