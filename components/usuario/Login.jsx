@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Button, Container, Form, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HOME, REGISTER } from '../../routes/path';
-import { login } from '../../services/usuario';
+import { formLogin } from '../../services/usuario';
 import { useAuthContext } from './../../context/authContext';
 const Login = () => {
   const [loginData, setLoginData] = useState({
-    userName: '',
+    email: '',
     password: '',
   });
 
-  const { userName, password } = loginData;
+  const { email, password } = loginData;
 
   const { Login } = useAuthContext();
 
@@ -23,20 +23,23 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(loginData) && Login();
+    //api aws 
+    formLogin(loginData)
+    
+    // Login();
   };
 
   return (
     <Container>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit} className="w-75 m-auto">
-        <Form.Group className="mb-3" controlId="formBasicUserName">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
-            type="userName"
-            name="userName"
+            type="email"
+            name="email"
             placeholder="Enter userName"
-            value={userName}
+            value={email}
             onChange={handelOnChange}
             required
           />
