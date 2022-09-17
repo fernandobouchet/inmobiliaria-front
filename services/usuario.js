@@ -9,28 +9,27 @@ const baseUrl = '';
 //   },
 // };
 export const formLogin = async (credentials) => {
-  console.log(credentials);
-
-
-  const headers = {
-    'Content-Type': 'application/json',
-   
-};
-
-await axios.post('https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/login', 
-credentials,  
-{
-  headers,
-  }
-  ).then(function (response) {
-    console.log('hola')
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log('cors');
+  let credJson = JSON.stringify(credentials);
+  try {
+    const result = await axios.post(
+      'https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/login',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Access-Control-Allow-Origin': '*',
+        },
+        data: credJson,
+      }
+    );
+    if (result.status === 200) {
+      return result.data;
+    } else {
+      console.log('Unknow error');
+    }
+  } catch (error) {
     console.log(error);
-  });
-  return true;
+  }
 };
 // ----------------------------------
 
