@@ -3,7 +3,7 @@ import { Button, Container, Form, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HOME, REGISTER } from '../../routes/path';
 import { formLogin } from '../../services/usuario';
-import { useAuthContext } from './../../context/authContext';
+import {useAuthContext } from '../../context/authContext'
 const Login = () => {
   const [loginData, setLoginData] = useState({
     email: '',
@@ -12,7 +12,7 @@ const Login = () => {
 
   const { email, password } = loginData;
 
-  const { Login } = useAuthContext();
+  const { LoginContext, isAuthenticated } = useAuthContext();
 
   const handelOnChange = (e) => {
     setLoginData((prevState) => ({
@@ -21,13 +21,17 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+
     e.preventDefault();
     //api aws 
-    formLogin(loginData)
-    
-    // Login();
-  };
+    let {data} = await formLogin(loginData)  
+    // hook validar token 
+    LoginContext(data.accessToken)
+
+    }
+  
+  
 
   return (
     <Container>

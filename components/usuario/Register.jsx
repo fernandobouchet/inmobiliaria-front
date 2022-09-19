@@ -38,10 +38,13 @@ const register = () => {
             type="name"
             name="firstName"
             placeholder="Enter first name"
+            
             value={firstName}
             onChange={handleOnChange}
             required
-          />
+            />
+            <span>the name is required</span>
+          <span></span>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicLastName">
