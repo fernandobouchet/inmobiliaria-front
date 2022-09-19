@@ -13,7 +13,7 @@ export const formLogin = async (credentials) => {
 
   const config = {
     method: 'post',
-    url: 'https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/login',
+    url: 'https://357canqt9k.execute-api.us-east-1.amazonaws.com/dev/auth',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -32,25 +32,3 @@ export const formLogin = async (credentials) => {
   }
 };
 // ----------------------------------
-
-export const formRegister = async (credentials) => {
-  console.log(credentials);
-  await axios
-    .post(
-      'https://m9y19x66c7.execute-api.us-east-1.amazonaws.com/dev/auth/register',
-      credentials,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Access-Control-Allow-Origin': '*',
-        },
-      }
-    )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};

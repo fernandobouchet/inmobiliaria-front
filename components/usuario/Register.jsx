@@ -2,7 +2,6 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
-import { formRegister } from '../../services/usuario';
 
 const register = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +24,6 @@ const register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(formData);
-    formRegister(formData);
   };
 
   return (
