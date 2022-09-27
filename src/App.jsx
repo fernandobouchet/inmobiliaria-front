@@ -1,6 +1,6 @@
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { PRIVATE,LOGIN,REGISTER, LOGOUT, HOME } from '../routes/path'
+import { PRIVATE,LOGIN,REGISTER, LOGOUT, HOME, LISTPROPERTY } from '../routes/path'
 import Login from '../components/usuario/login'
 import Register from '../components/usuario/register'
 import Home from '../pages/Home.jsx'
@@ -9,7 +9,8 @@ import PrivateRoute from '../components/router/PrivateRoute'
 import { AuthContextProvider } from './../context/authContext'
 import Profile from '../pages/Profile'
 import Logout from '../pages/Logout'
-
+import 'bootstrap/dist/css/bootstrap.css';
+import Property from '../pages/Property'
 function App() {
 
 
@@ -28,6 +29,7 @@ function App() {
               <Route index element={<Profile/>}/>
               <Route path={LOGOUT} element={<Logout/>}/>
            </Route>
+           <Route path={LISTPROPERTY} element={<Property/>}/>
         </Routes>
       </BrowserRouter>
   

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SearchBar from '../components/SearchBar/SearchBar'
 import { LOGIN, PRIVATE } from '../routes/path'
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
 <br/>
 <br/>
       <Link to={PRIVATE}>Profile</Link>
+      <SearchBar/>
     </div>
   )
 }
