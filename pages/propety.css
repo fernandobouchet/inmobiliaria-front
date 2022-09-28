@@ -1,3 +1,5 @@
-.container-property{
-    margin-top: 10px;
+.container{
+    width:100%;
+    max-width: 1440px;
+    margin: auto;
 }

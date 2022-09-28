@@ -1,14 +1,19 @@
 .navbar{
-    height: 97px;
-    background-color: #D50E49;
-    display: flex;
-    justify-content: center;
+    height: 5rem;
+    width: 100%;
+    background-color: #5a5657;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .navContainer{
+    height: 4rem;
+    margin: auto;
     width: 100%;
-    max-width: 1024px;
-    margin-top: 10px;
+    max-width: 1440px;
+
     color:white;
     display: flex;
     align-items: center;
@@ -16,9 +21,13 @@
 }
 
 .logo{
-    font-weight: 500;
+
 }
 
+
+.logo-photo img {
+   height: 20px;
+}
 .navButton{
     margin-left: 20px;
     border:none;
@@ -30,26 +39,52 @@
     padding: 8px 22px;
 }
 
-.navContainer img{
-    width: 100px;
-
-}
 
 .links{
+
     display: flex;
     flex-direction: row;
+    align-self: normal;
 }
 
 .links ul{
+    text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    margin-right: 3px;
+    margin-right: 1rem;
     text-decoration: none;
 }
 
 .links ul li{
-    margin-right: 7px;
-    
+    margin-right: 2rem;
+    list-style: none;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.links ul li:hover{
+    border-bottom: 1px solid white;
+}
+.loginButon{
+    text-Decoration:none; 
+    color:white;
+    font-size: 1rem;
+}
+.loginButon:hover{
+    color: white;
+}
+.Icon{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.logo-foto{
+    width: 100%;
+    max-width: 50%;
+}
+
+.Icon-login{
+    margin-right: 1rem;
 }

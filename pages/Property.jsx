@@ -3,16 +3,17 @@ import PropertyList from '../components/inmuebles/PropertyList/PropertyList'
 import SearchBar from '../components/SearchBar/SearchBar'
 import { Navbar } from '../components/navbar/Navbar'
 import "./propety.css";
+
 import { Footer } from '../components/footer/Footer';
 
 const Property = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
       <SearchBar/>
       <PropertyList/>
       <Footer/>
-    </div>
+    </div >
   )
 }
 

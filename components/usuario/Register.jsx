@@ -31,9 +31,9 @@ const register = () => {
   return (
     <Container>
       <h1>Registrarse</h1>
-      <Form onSubmit={handleSubmit} className="w-75 m-auto">
+      <Form onSubmit={handleSubmit} className="w-75 m-auto needs-validation" novalidate>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>First name</Form.Label>
+          <Form.Label >First name</Form.Label>
           <Form.Control
             type="name"
             name="firstName"

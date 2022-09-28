@@ -11,9 +11,18 @@ const headers = {
 
 export const formLogin = async (credentials) => {
 
-    const {data}= await axios .post(`${baseUrl}/auth`,credentials, headers )
-     return data;
-    
+return await axios 
+.post(`${baseUrl}/auth`,credentials, headers )
+.then(data => {
+
+  return data.status
+  
+})
+  .catch(error => {
+   
+   return error.response.data
+      
+  });
   };
 
 // ----------------------------------
