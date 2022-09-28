@@ -14,8 +14,10 @@ export function AuthContextProvider({ children }) {
     window.localStorage.getItem(TOKEN) ?? false
   );
 
-  const Login = useCallback(function () {
-    window.localStorage.setItem(TOKEN, true);
+  const LoginContext = useCallback( (a) => {
+    
+      window.localStorage.setItem(TOKEN, a);
+    
     setIsAuthenticated(true);
   }, []);
 
@@ -26,11 +28,11 @@ export function AuthContextProvider({ children }) {
 
   const Value = useMemo(
     () => ({
-      Login,
+      LoginContext,
       LogoutContext,
       isAuthenticated,
     }),
-    [Login, LogoutContext, isAuthenticated]
+    [LoginContext, LogoutContext, isAuthenticated]
   );
 
   return <AuthContext.Provider value={Value}>{children}</AuthContext.Provider>;

@@ -1,47 +1,83 @@
-import {useState} from 'react'
+import { useState } from 'react';
+import { Button, Container, Form, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HOME, REGISTER } from '../../routes/path';
-import {login} from '../../services/usuario'
-import { useAuthContext } from './../../context/authContext';
+import { formLogin } from '../../services/usuario';
+import {useAuthContext } from '../../context/authContext'
 const Login = () => {
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+  const { email, password } = loginData;
 
-    const {Login} = useAuthContext();
+  const { LoginContext, isAuthenticated } = useAuthContext();
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-       login({username, password}) && Login()
+  const handelOnChange = (e) => {
+    setLoginData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+    //api aws 
+    let {data} = await formLogin(loginData)  
+    // hook validar token 
+    LoginContext(data.accessToken)
 
     }
-    
-    return (
-    <div>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
+  
+  
 
-        <input 
-        type="text"
-        value={username}
-        placeholder='Username'
-        onChange={({target}) => setUsername(target.value)}
-        />
-        <input type="password"
+  return (
+    <Container>
+      <h1>Login</h1>
+      <Form onSubmit={handleSubmit} className="w-75 m-auto">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>User name</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Enter userName"
+            value={email}
+            onChange={handelOnChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Password"
             value={password}
-            placeholder='Password'
-            onChange={({target}) => setPassword(target.value)}
-        />
+            onChange={handelOnChange}
+            required
+          />
+        </Form.Group>
 
-        <button>login</button>
-        </form>
-        <div>
+        <Stack gap="2" className="col-md-5 mx-auto">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+          <div>
             Need an Account?
-          <Link to={REGISTER}>Sign Up</Link> 
-        </div>
-        <Link to={HOME}>INICIO</Link>
-    </div>
-  )
-}
+            <Button as={Link} to={REGISTER}>
+              Sign Up
+            </Button>
+          </div>
+        </Stack>
+      </Form>
+      <Button as={Link} to={HOME}>
+        INICIO
+      </Button>
+    </Container>
+  );
+};
 
-export default Login
+export default Login;
