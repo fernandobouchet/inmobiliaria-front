@@ -62,18 +62,6 @@ const register = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicUserName">
-          <Form.Label>User name</Form.Label>
-          <Form.Control
-            type="username"
-            name="userName"
-            placeholder="Enter username"
-            value={userName}
-            onChange={handleOnChange}
-            required
-          />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
