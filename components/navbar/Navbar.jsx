@@ -1,4 +1,3 @@
-import './navbar.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import logo from '../../components/inmuebles/img/logo.png';
