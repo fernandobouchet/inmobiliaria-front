@@ -10,7 +10,6 @@ const register = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    userName: '',
     email: '',
     password: '',
   });

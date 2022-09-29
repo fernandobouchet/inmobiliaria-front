@@ -27,7 +27,7 @@ const SearchBar = () => {
   return (
     <Container>
       <Form>
-        <Row>
+        <Row xs={1} md={6}>
           <Col>
             <Form.Control
               placeholder="¿A donde quieres mudarte?"
